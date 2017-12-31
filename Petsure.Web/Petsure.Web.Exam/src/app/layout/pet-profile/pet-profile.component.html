@@ -1,0 +1,60 @@
+<div class="form-group">
+  <div class="spacer"></div>
+  <div>
+      <div class="col-md-2 col-centered"><h2>Make a claim</h2></div>
+  </div>
+  <br>
+  <div>
+      <div class="col-md-3 col-centered">Make a claim for your pet
+          <select id="petDropdown" class="form-control" (change)="onChange($event.target.value)" >
+            <option>-- Select pet --</option>
+            <option value="{{petOption.Name}}" *ngFor="let petOption of petOptions">{{petOption.Name}}</option>
+          </select> 
+      </div>  
+  </div>
+  <br>
+  <div>
+      <div class="col-md-3 col-centered">
+        <file-drop (onFileDrop)="dropped($event)" >
+            <span>Drag and drop</span>
+        </file-drop>
+      </div>
+      
+      <div class="upload-table col-md-3 col-centered">
+          <table class="table">
+              <thead>
+                  <tr>
+                      <th>File</th>
+                  </tr>
+              </thead>
+              <tbody class="upload-name-style">
+                  <tr *ngFor="let item of files; let i=index">
+                      <td><strong>{{ item.relativePath }}</strong></td>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+  </div>
+  <br>
+  <div>
+      <div class="col-md-3 col-centered">
+          <button (click)="saveFiles(content)" type="button" class="btn btn-primary btn-md">Submit</button>
+          <a href="#">Or save for later</a>
+      </div>
+  </div>
+</div>
+
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">{{modalTitle}}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p>{{modalMessage}}</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="c('Close click')">Close</button>
+  </div>
+</ng-template>
