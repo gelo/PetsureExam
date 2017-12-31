@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Petsure.Core.Common\Petsure.Core.Common.csproj" />
+    <ProjectReference Include="..\Petsure.Core.Models\Petsure.Core.Models.csproj" />
+  </ItemGroup>
+
+</Project>
